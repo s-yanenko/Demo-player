@@ -27,10 +27,10 @@ extension PlayerViewController {
     }
     
     func onApplicationDidBecomeActive() {
-        player.play()
+        adapter.resume()
     }
     
     func onApplicationWillResignActive() {
-        player.pause()
+        adapter.pause()
     }
 }

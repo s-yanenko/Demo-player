@@ -12,7 +12,8 @@ import AVKit
 import AVFoundation
 
 
-class PlayerViewController: ViewController {
+class PlayerViewController: ViewController, PlayerAdapterDelegate {
+    
     
     // MARK: - Properties
     
@@ -29,23 +30,17 @@ class PlayerViewController: ViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var seekSlider: UISlider!
     
-    private(set) var player: AVPlayer!
-    
-    private(set) lazy var renderingView: PlayerRenderingView = {
-        let playerRenderingView = PlayerRenderingView()
-        playerRenderingView.backgroundColor = .black
-        if let layer = playerRenderingView.layer as? AVPlayerLayer {
-            layer.player = self.player
-        }
-        return playerRenderingView
+    lazy var adapter: PlayerAdapter = {
+        var adapter = AVPlayerAdapterImp.init()
+        adapter.delegate = self
+        return adapter
     }()
+    
     
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
-        view.clipsToBounds = true
-        player = AVPlayer()
         subscribeToNotifications()
         configureRendering()
     
@@ -62,6 +57,36 @@ class PlayerViewController: ViewController {
     
     
     
+    // MARK: - PlayerAdapterDelegate
+    
+    func playerAdapter(_ playerAdapter: PlayerAdapter, didChangeStateFrom oldState: PlayerAdapterState, to newState: PlayerAdapterState) {
+        if newState == .failed {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func playerAdapter(_ playerAdapter: PlayerAdapter, didChangePlaybackStateFrom oldState: PlaybackState, to newPlaybackState: PlaybackState) {
+        if newPlaybackState == .running {
+            //startControlsDisappearingTimer()
+        }
+    }
+    
+    func playerAdapter(_ playerAdapter: PlayerAdapter, didEncounterAnError error: Error) {
+        adapter.suspend()
+        //showError
+    }
+    
+    func playerAdapterDidPlayToEnd(_ playerAdapter: PlayerAdapter) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func playerAdapter(_ playerAdapter: PlayerAdapter, didChangeCurrentTimeTo seconds: TimeInterval) {
+        
+    }
+    
+    func playerAdapter(_ playerAdapter: PlayerAdapter, needsToDismissPlayerAnimated animated: Bool) {
+        dismiss(animated: animated, completion: nil)
+    }
     
 
     
@@ -69,21 +94,21 @@ class PlayerViewController: ViewController {
     // MARK: - Private
     
     func setupPlayback() {
-        guard let playbackUrl = URL(string: GlobalConstants.playbackPath) else {
-            return
-            // showError
+        do {
+            try adapter.load(with: GlobalConstants.playbackPath)
         }
-        let asset = AVURLAsset(url: playbackUrl)
-        let playerItem = AVPlayerItem(asset: asset)
-        player.replaceCurrentItem(with: playerItem)
-        player.play()
+        catch let err {
+            print("Failed to start playback: \(err)")
+            // show error
+        }
+       
     }
     
     func configureRendering() {
-        renderingView.frame = view.bounds
-        renderingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        renderingView.translatesAutoresizingMaskIntoConstraints = true
-        view.insertSubview(renderingView, at: 0)
+        adapter.renderingView.frame = view.bounds
+        adapter.renderingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        adapter.renderingView.translatesAutoresizingMaskIntoConstraints = true
+        view.insertSubview(adapter.renderingView, at: 0)
     }
     
     
@@ -92,13 +117,13 @@ class PlayerViewController: ViewController {
     }
     
     @IBAction func playButtonTouched(_ sender: Any) {
-        player.play()
+        adapter.resume()
         pauseButton.isHidden = false
         playButton.isHidden = true
     }
     
     @IBAction func pauseButtonTouched(_ sender: Any) {
-        player.pause()
+        adapter.pause()
         playButton.isHidden = false
         pauseButton.isHidden = true
     }
