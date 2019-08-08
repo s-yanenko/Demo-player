@@ -216,7 +216,7 @@ class AVPlayerAdapterImp: NSObject, PlayerAdapter {
         let playerItem = AVPlayerItem(asset: asset)
         addObservation(to: playerItem)
         player.replaceCurrentItem(with: playerItem)
-        player.play()
+        resume()
     }
     
     func resume() {

@@ -12,6 +12,7 @@
 		410D6B3122F89ED700945E28 /* PlayerViewController+Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410D6B3022F89ED700945E28 /* PlayerViewController+Mobile.swift */; };
 		410E28BA22F9D9500078B9F8 /* PlayerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28B822F9D9500078B9F8 /* PlayerAdapter.swift */; };
 		410E28BB22F9D9500078B9F8 /* AVPlayerAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28B922F9D9500078B9F8 /* AVPlayerAdapterImp.swift */; };
+		410E28BE22FC16020078B9F8 /* Swift+Transforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28BD22FC16020078B9F8 /* Swift+Transforms.swift */; };
 		4119FC1122F46F3500F9987A /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4119FC1022F46F3400F9987A /* Player.storyboard */; };
 		4119FC1722F4862100F9987A /* PlayerRenderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119FC1622F4862100F9987A /* PlayerRenderingView.swift */; };
 		417FBB2222EF71E400C076F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBB2122EF71E400C076F9 /* AppDelegate.swift */; };
@@ -21,7 +22,6 @@
 		417FBB2C22EF71E600C076F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417FBB2A22EF71E600C076F9 /* LaunchScreen.storyboard */; };
 		417FBB3722EF71E600C076F9 /* Demo_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBB3622EF71E600C076F9 /* Demo_PlayerTests.swift */; };
 		417FBB4822EF81BC00C076F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBB4722EF81BC00C076F9 /* Constants.swift */; };
-		41C010BC22F31BD80013E72D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C010BB22F31BD80013E72D /* NavigationController.swift */; };
 		41C010C522F3438C0013E72D /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C010C422F3438C0013E72D /* DeviceInfo.swift */; };
 		41C010C722F347A90013E72D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C010C622F347A90013E72D /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +42,7 @@
 		410D6B3022F89ED700945E28 /* PlayerViewController+Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+Mobile.swift"; sourceTree = "<group>"; };
 		410E28B822F9D9500078B9F8 /* PlayerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAdapter.swift; sourceTree = "<group>"; };
 		410E28B922F9D9500078B9F8 /* AVPlayerAdapterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerAdapterImp.swift; sourceTree = "<group>"; };
+		410E28BD22FC16020078B9F8 /* Swift+Transforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Transforms.swift"; sourceTree = "<group>"; };
 		4119FC1022F46F3400F9987A /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		4119FC1622F4862100F9987A /* PlayerRenderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRenderingView.swift; sourceTree = "<group>"; };
 		417FBB1E22EF71E400C076F9 /* Demo-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +56,6 @@
 		417FBB3622EF71E600C076F9 /* Demo_PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_PlayerTests.swift; sourceTree = "<group>"; };
 		417FBB3822EF71E600C076F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417FBB4722EF81BC00C076F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		41C010BB22F31BD80013E72D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		41C010C422F3438C0013E72D /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		41C010C622F347A90013E72D /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +87,21 @@
 			path = Adapter;
 			sourceTree = "<group>";
 		};
+		410E28BC22FC15B80078B9F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				410E28BD22FC16020078B9F8 /* Swift+Transforms.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		410E28C022FC27CA0078B9F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4119FC1522F4861100F9987A /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +116,7 @@
 				417FBB2022EF71E400C076F9 /* Demo-Player */,
 				417FBB3522EF71E600C076F9 /* Demo-PlayerTests */,
 				417FBB1F22EF71E400C076F9 /* Products */,
+				410E28C022FC27CA0078B9F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +154,7 @@
 		417FBB4122EF728B00C076F9 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				410E28BC22FC15B80078B9F8 /* Extensions */,
 				417FBB2122EF71E400C076F9 /* AppDelegate.swift */,
 				417FBB4722EF81BC00C076F9 /* Constants.swift */,
 				41C010C422F3438C0013E72D /* DeviceInfo.swift */,
@@ -191,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				417FBB2322EF71E400C076F9 /* MainViewController.swift */,
-				41C010BB22F31BD80013E72D /* NavigationController.swift */,
 				410D6B2C22F876B000945E28 /* ViewController.swift */,
 			);
 			path = Base;
@@ -259,6 +275,14 @@
 				TargetAttributes = {
 					417FBB1D22EF71E400C076F9 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 					417FBB3122EF71E600C076F9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -320,9 +344,9 @@
 				410E28BB22F9D9500078B9F8 /* AVPlayerAdapterImp.swift in Sources */,
 				410D6B3122F89ED700945E28 /* PlayerViewController+Mobile.swift in Sources */,
 				417FBB2422EF71E400C076F9 /* MainViewController.swift in Sources */,
-				41C010BC22F31BD80013E72D /* NavigationController.swift in Sources */,
 				417FBB2222EF71E400C076F9 /* AppDelegate.swift in Sources */,
 				417FBB4822EF81BC00C076F9 /* Constants.swift in Sources */,
+				410E28BE22FC16020078B9F8 /* Swift+Transforms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

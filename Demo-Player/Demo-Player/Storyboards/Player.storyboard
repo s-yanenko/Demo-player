@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCO-Nc-o6g">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="weC-aJ-ZcO" appends="YES" id="7x9-cj-6Eg"/>
+                                </connections>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6us-xz-vzU" userLabel="Player Controls">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
@@ -86,7 +94,7 @@
                                             <action selector="mediaOptionsButtonTouched:" destination="ZeA-Gp-TRk" eventType="touchUpInside" id="Zb2-80-ro4"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJm-XG-toU">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJm-XG-toU" userLabel="View">
                                         <rect key="frame" x="0.0" y="325" width="667" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CDl-EU-Uub">
@@ -101,7 +109,8 @@
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MqR-sa-85e">
                                                         <rect key="frame" x="43.5" y="0.0" width="560" height="51"/>
                                                         <connections>
-                                                            <action selector="seekControlTouched:" destination="ZeA-Gp-TRk" eventType="valueChanged" id="11w-9b-OvQ"/>
+                                                            <action selector="seekControlTouched:" destination="ZeA-Gp-TRk" eventType="touchUpInside" id="M6d-FM-GXp"/>
+                                                            <action selector="seekControlValueChanged:" destination="ZeA-Gp-TRk" eventType="valueChanged" id="or6-Jv-MYT"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igR-FR-lZR">
@@ -114,7 +123,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="CDl-EU-Uub" secondAttribute="trailing" constant="10" id="4fH-CP-uqU"/>
                                             <constraint firstItem="CDl-EU-Uub" firstAttribute="top" secondItem="XJm-XG-toU" secondAttribute="top" id="7D4-Vx-QYJ"/>
@@ -150,26 +159,38 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WKa-0z-fIA" firstAttribute="trailing" secondItem="CCO-Nc-o6g" secondAttribute="trailing" id="6hw-Eb-UD5"/>
+                            <constraint firstItem="CCO-Nc-o6g" firstAttribute="top" secondItem="WKa-0z-fIA" secondAttribute="top" id="945-4t-bmp"/>
                             <constraint firstItem="6us-xz-vzU" firstAttribute="top" secondItem="ttd-IP-EEw" secondAttribute="top" id="9TN-gQ-RMy"/>
                             <constraint firstAttribute="bottom" secondItem="6us-xz-vzU" secondAttribute="bottom" id="G4d-6P-oUr"/>
+                            <constraint firstItem="CCO-Nc-o6g" firstAttribute="leading" secondItem="WKa-0z-fIA" secondAttribute="leading" id="XLu-wN-oY9"/>
                             <constraint firstItem="6us-xz-vzU" firstAttribute="leading" secondItem="ttd-IP-EEw" secondAttribute="leading" id="kYJ-am-Idj"/>
+                            <constraint firstItem="WKa-0z-fIA" firstAttribute="bottom" secondItem="CCO-Nc-o6g" secondAttribute="bottom" id="mXf-xE-Z3L"/>
                             <constraint firstAttribute="trailing" secondItem="6us-xz-vzU" secondAttribute="trailing" id="yyq-BW-jqW"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="WKa-0z-fIA"/>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="i2g-mj-Fox" id="Smb-iH-WVJ"/>
-                        <outlet property="durationLabel" destination="igR-FR-lZR" id="g97-Mu-yRt"/>
                         <outlet property="elapsedTimeLabel" destination="ARb-jf-7FD" id="nCM-no-ER6"/>
                         <outlet property="mediaOptionsButton" destination="ad7-xd-cUC" id="oGW-oW-yGv"/>
                         <outlet property="pauseButton" destination="bJ4-hF-RkL" id="Nmh-gD-E8d"/>
                         <outlet property="playButton" destination="yld-He-zLB" id="QYd-pS-Q7Y"/>
-                        <outlet property="playerControlsView" destination="6us-xz-vzU" id="dtA-nR-9Gf"/>
+                        <outlet property="playerControlsView" destination="6us-xz-vzU" id="A5K-su-trD"/>
+                        <outlet property="playerRenderingView" destination="CCO-Nc-o6g" id="QBw-4c-aGR"/>
+                        <outlet property="remainingTimeLabel" destination="igR-FR-lZR" id="g97-Mu-yRt"/>
+                        <outlet property="renderingViewTapGesture" destination="weC-aJ-ZcO" id="Ox8-pc-uY6"/>
                         <outlet property="seekSlider" destination="MqR-sa-85e" id="vgs-Ls-jI0"/>
                         <outlet property="skipBackwardButton" destination="PAI-wM-Jfy" id="INC-8m-52p"/>
                         <outlet property="skipForwardButton" destination="9Qu-Fc-LbQ" id="JBG-y2-huA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ko9-u5-0C5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="weC-aJ-ZcO">
+                    <connections>
+                        <action selector="renderingViewGestureTapped:" destination="ZeA-Gp-TRk" id="hBy-5w-kHl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-52" y="55"/>
         </scene>

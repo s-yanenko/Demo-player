@@ -11,8 +11,10 @@ import Foundation
 
 class ViewController: UIViewController {
     
+    // MARK: - Lifecu=ycle
+    
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
