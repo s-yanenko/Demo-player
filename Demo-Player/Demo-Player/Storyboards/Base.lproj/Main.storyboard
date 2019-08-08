@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmk-ww-Yh2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="maq-xE-IhR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This App is created for demo purposes only. All materials are belong to the rights holders. Created by Serhii Yanenko" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="61e-LO-oZM">
-                                <rect key="frame" x="60" y="120" width="255" height="275.5"/>
+                                <rect key="frame" x="60" y="164" width="255" height="231.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -44,11 +44,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oQl-bL-LRc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="S3F-Q8-yvw"/>
                     <connections>
                         <outlet property="showPlayerButton" destination="lci-o9-KpC" id="Cmb-qI-51D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxQ-z0-Cje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="-343.17841079460271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LXZ-pv-qjd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="maq-xE-IhR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Plu-t9-3Xu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pmk-ww-Yh2" kind="relationship" relationship="rootViewController" id="Hii-Ii-tOt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfk-2F-Hc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2560.8000000000002" y="-343.17841079460271"/>
         </scene>

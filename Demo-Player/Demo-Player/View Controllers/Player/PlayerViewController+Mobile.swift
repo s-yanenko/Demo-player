@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 extension PlayerViewController {
+    
+    // MARK: - Overrides
+    
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return .landscape
     }
@@ -19,6 +22,6 @@ extension PlayerViewController {
     }
     
     override var prefersStatusBarHidden : Bool {
-        return true
+        return !shouldShowStatusBar
     }
 }
