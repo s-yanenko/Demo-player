@@ -136,8 +136,8 @@ protocol PlayerAdapter {
     var currentPlaybackState: PlaybackState { get }
     var currentPlayerItemDurationInSeconds: TimeInterval { get }
     var currentPlayerItemPositionInSeconds: TimeInterval { get }
-    var preselectedAudioLanguageIdentifier: String? { get }
-    var preselectedSubtitleLanguageIdentifier: String? { get }
+    var preselectedAudioLanguageIdentifier: String? { get set }
+    var preselectedSubtitleLanguageIdentifier: String? { get set }
     var currentAudioOption: PlayerMediaOption? { get set }
     var currentSubtitleOption: PlayerMediaOption? { get set }
     var audioOptions: [PlayerMediaOption] { get }
