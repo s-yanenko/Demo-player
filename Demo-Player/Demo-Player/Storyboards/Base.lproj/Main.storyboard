@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="maq-xE-IhR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="RGH-Kt-mEt">
+            <objects>
+                <viewController id="pmk-ww-Yh2" customClass="MainViewController" customModule="Demo_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tGS-wf-s4L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lci-o9-KpC">
+                                <rect key="frame" x="137.5" y="455.5" width="100" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start Player"/>
+                                <connections>
+                                    <action selector="showPlayerTouch:" destination="pmk-ww-Yh2" eventType="touchUpInside" id="pbk-jG-Vc1"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This App is created for demo purposes only. All materials are belong to the rights holders. Created by Serhii Yanenko" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="61e-LO-oZM">
+                                <rect key="frame" x="60" y="164" width="255" height="231.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="61e-LO-oZM" firstAttribute="leading" secondItem="oQl-bL-LRc" secondAttribute="leading" constant="60" id="3Lr-99-Wi8"/>
+                            <constraint firstItem="lci-o9-KpC" firstAttribute="top" secondItem="61e-LO-oZM" secondAttribute="bottom" constant="60" id="8Vy-M6-OXh"/>
+                            <constraint firstItem="lci-o9-KpC" firstAttribute="centerY" secondItem="tGS-wf-s4L" secondAttribute="centerY" constant="140" id="PWT-rv-4h3"/>
+                            <constraint firstItem="lci-o9-KpC" firstAttribute="centerX" secondItem="tGS-wf-s4L" secondAttribute="centerX" id="kZs-QO-xz2"/>
+                            <constraint firstItem="61e-LO-oZM" firstAttribute="top" secondItem="oQl-bL-LRc" secondAttribute="top" constant="100" id="w6A-gx-uFQ"/>
+                            <constraint firstItem="oQl-bL-LRc" firstAttribute="trailing" secondItem="61e-LO-oZM" secondAttribute="trailing" constant="60" id="xaV-Vp-SuJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oQl-bL-LRc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S3F-Q8-yvw"/>
+                    <connections>
+                        <outlet property="showPlayerButton" destination="lci-o9-KpC" id="Cmb-qI-51D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nxQ-z0-Cje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="-343.17841079460271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LXZ-pv-qjd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="maq-xE-IhR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Plu-t9-3Xu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pmk-ww-Yh2" kind="relationship" relationship="rootViewController" id="Hii-Ii-tOt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfk-2F-Hc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2560.8000000000002" y="-343.17841079460271"/>
+        </scene>
+    </scenes>
+</document>
