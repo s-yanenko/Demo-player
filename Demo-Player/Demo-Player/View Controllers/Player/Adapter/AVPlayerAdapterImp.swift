@@ -208,7 +208,8 @@ class AVPlayerAdapterImp: NSObject, PlayerAdapter {
         currentSubtitleOption = nil
         audioOptions = []
         subtitleOptions = []
-        guard let playbackUrl = URL(string: playbackPath) else {
+        guard let playbackUrl = URL(string: playbackPath),
+            UIApplication.shared.canOpenURL(playbackUrl) else {
             throw PlayerAdapterError.noStreamUrl
         }
         removeObservation(from: player.currentItem)

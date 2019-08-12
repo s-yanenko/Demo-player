@@ -109,9 +109,7 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsV
     // MARK: - PlayerAdapterDelegate
     
     func playerAdapter(_ playerAdapter: PlayerAdapter, didChangeStateFrom oldState: PlayerAdapterState, to newState: PlayerAdapterState) {
-        if newState == .failed {
-            closePlayer()
-        }
+
     }
     
     func playerAdapter(_ playerAdapter: PlayerAdapter, didChangePlaybackStateFrom oldState: PlaybackState, to newPlaybackState: PlaybackState) {
@@ -122,7 +120,9 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsV
     
     func playerAdapter(_ playerAdapter: PlayerAdapter, didEncounterAnError error: Error) {
         adapter.suspend()
-        //showError
+        handleError(error, handler: { [weak self] in
+            self?.closePlayer()
+            })
     }
     
     func playerAdapterDidPlayToEnd(_ playerAdapter: PlayerAdapter) {
@@ -132,7 +132,6 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsV
     func playerAdapter(_ playerAdapter: PlayerAdapter, didChangeCurrentTimeTo seconds: TimeInterval) {
         durationInSeconds = adapter.currentPlayerItemDurationInSeconds
         elapsedInSeconds = seconds
-        
     }
     
     func playerAdapter(_ playerAdapter: PlayerAdapter, needsToDismissPlayerAnimated animated: Bool) {
@@ -177,7 +176,7 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsV
         }
         catch let err {
             print("Failed to start playback: \(err)")
-            // show error
+            handleError(err)
         }
        
     }
