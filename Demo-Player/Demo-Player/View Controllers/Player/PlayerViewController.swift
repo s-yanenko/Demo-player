@@ -12,8 +12,7 @@ import AVKit
 import AVFoundation
 
 
-class PlayerViewController: ViewController, PlayerAdapterDelegate {
-    
+class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsViewControllerDelegate {
     
     // MARK: - Properties
     
@@ -139,6 +138,22 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate {
     func playerAdapter(_ playerAdapter: PlayerAdapter, needsToDismissPlayerAnimated animated: Bool) {
         closePlayer()
     }
+    
+    
+    
+    // MARK: - MediaOptionsViewControllerDelegate
+    
+    func mediaOptionsController(_ viewController: MediaOptionsViewController, didAskToSwitchAudioOptionOn option: PlayerMediaOption?) {
+        adapter.currentAudioOption = option
+        adapter.preselectedAudioLanguageIdentifier = option?.languageCode
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func mediaOptionsController(_ viewController: MediaOptionsViewController, didAskToSwitchSubtitleOptionOn option: PlayerMediaOption?) {
+        adapter.currentSubtitleOption = option
+        adapter.preselectedSubtitleLanguageIdentifier = option?.languageCode
+        viewController.dismiss(animated: true, completion: nil)
+    }
 
     
     
@@ -146,7 +161,6 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate {
     // MARK: - General
     
     private func closePlayer() {
-        //playerRenderingView.removeFromSuperview()
         adapter.stop()
         dismiss(animated: true, completion: nil)
     }
@@ -173,6 +187,24 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate {
         adapter.renderingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         adapter.renderingView.translatesAutoresizingMaskIntoConstraints = true
         playerRenderingView.insertSubview(adapter.renderingView, at: 0)
+    }
+    
+    private func showMediaOptionsController() {
+        let mediaOptionsController = UIStoryboard(name: "Player", bundle: nil).instantiateViewController(withIdentifier: "MediaOptions") as! MediaOptionsViewController
+        mediaOptionsController.delegate = self
+        mediaOptionsController.audioOptions = adapter.audioOptions
+        
+        var options = adapter.subtitleOptions
+        let offSubtitlesOption = PlayerMediaOption(index: 0, title: "Off", identifier: "Off", languageCode: "en")
+        options.insert(offSubtitlesOption, at: 0)
+        if adapter.currentSubtitleOption == nil {
+            adapter.currentSubtitleOption = offSubtitlesOption
+        }
+        
+        mediaOptionsController.subtitleOptions = options
+        mediaOptionsController.currentAudioOption = adapter.currentAudioOption
+        mediaOptionsController.currentSubtitleOption = adapter.currentSubtitleOption
+        present(mediaOptionsController, animated: true, completion: nil)
     }
     
     
@@ -331,7 +363,7 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate {
     }
     
     @IBAction func mediaOptionsButtonTouched(_ sender: Any) {
-        
+        showMediaOptionsController()
     }
     
     @IBAction func seekControlTouched(_ sender: UISlider) {

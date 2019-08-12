@@ -13,8 +13,11 @@
 		410E28BA22F9D9500078B9F8 /* PlayerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28B822F9D9500078B9F8 /* PlayerAdapter.swift */; };
 		410E28BB22F9D9500078B9F8 /* AVPlayerAdapterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28B922F9D9500078B9F8 /* AVPlayerAdapterImp.swift */; };
 		410E28BE22FC16020078B9F8 /* Swift+Transforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28BD22FC16020078B9F8 /* Swift+Transforms.swift */; };
+		410E28C522FC68170078B9F8 /* MediaOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28C422FC68170078B9F8 /* MediaOptionsViewController.swift */; };
+		410E28C822FC6EC60078B9F8 /* MediaOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E28C722FC6EC60078B9F8 /* MediaOptionTableViewCell.swift */; };
 		4119FC1122F46F3500F9987A /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4119FC1022F46F3400F9987A /* Player.storyboard */; };
 		4119FC1722F4862100F9987A /* PlayerRenderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119FC1622F4862100F9987A /* PlayerRenderingView.swift */; };
+		415B968B22FC763C00DED56F /* MediaOptionsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B968A22FC763C00DED56F /* MediaOptionsViewControllerDelegate.swift */; };
 		417FBB2222EF71E400C076F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBB2122EF71E400C076F9 /* AppDelegate.swift */; };
 		417FBB2422EF71E400C076F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FBB2322EF71E400C076F9 /* MainViewController.swift */; };
 		417FBB2722EF71E400C076F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417FBB2522EF71E400C076F9 /* Main.storyboard */; };
@@ -43,8 +46,11 @@
 		410E28B822F9D9500078B9F8 /* PlayerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAdapter.swift; sourceTree = "<group>"; };
 		410E28B922F9D9500078B9F8 /* AVPlayerAdapterImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerAdapterImp.swift; sourceTree = "<group>"; };
 		410E28BD22FC16020078B9F8 /* Swift+Transforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Transforms.swift"; sourceTree = "<group>"; };
+		410E28C422FC68170078B9F8 /* MediaOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewController.swift; sourceTree = "<group>"; };
+		410E28C722FC6EC60078B9F8 /* MediaOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionTableViewCell.swift; sourceTree = "<group>"; };
 		4119FC1022F46F3400F9987A /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		4119FC1622F4862100F9987A /* PlayerRenderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRenderingView.swift; sourceTree = "<group>"; };
+		415B968A22FC763C00DED56F /* MediaOptionsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		417FBB1E22EF71E400C076F9 /* Demo-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417FBB2122EF71E400C076F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		417FBB2322EF71E400C076F9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		410E28C322FC67EF0078B9F8 /* Media Options */ = {
+			isa = PBXGroup;
+			children = (
+				410E28C422FC68170078B9F8 /* MediaOptionsViewController.swift */,
+				415B968A22FC763C00DED56F /* MediaOptionsViewControllerDelegate.swift */,
+			);
+			path = "Media Options";
+			sourceTree = "<group>";
+		};
+		410E28C622FC6EAC0078B9F8 /* Media Options */ = {
+			isa = PBXGroup;
+			children = (
+				410E28C722FC6EC60078B9F8 /* MediaOptionTableViewCell.swift */,
+			);
+			path = "Media Options";
 			sourceTree = "<group>";
 		};
 		4119FC1522F4861100F9987A /* Rendering */ = {
@@ -200,6 +223,7 @@
 		417FBB4622EF735A00C076F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				410E28C622FC6EAC0078B9F8 /* Media Options */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +240,7 @@
 		41C010BE22F31E060013E72D /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				410E28C322FC67EF0078B9F8 /* Media Options */,
 				410E28B722F9D9240078B9F8 /* Adapter */,
 				4119FC1522F4861100F9987A /* Rendering */,
 				41C010C622F347A90013E72D /* PlayerViewController.swift */,
@@ -340,12 +365,15 @@
 				410D6B2D22F876B000945E28 /* ViewController.swift in Sources */,
 				41C010C522F3438C0013E72D /* DeviceInfo.swift in Sources */,
 				4119FC1722F4862100F9987A /* PlayerRenderingView.swift in Sources */,
+				410E28C522FC68170078B9F8 /* MediaOptionsViewController.swift in Sources */,
 				41C010C722F347A90013E72D /* PlayerViewController.swift in Sources */,
 				410E28BB22F9D9500078B9F8 /* AVPlayerAdapterImp.swift in Sources */,
 				410D6B3122F89ED700945E28 /* PlayerViewController+Mobile.swift in Sources */,
 				417FBB2422EF71E400C076F9 /* MainViewController.swift in Sources */,
 				417FBB2222EF71E400C076F9 /* AppDelegate.swift in Sources */,
+				410E28C822FC6EC60078B9F8 /* MediaOptionTableViewCell.swift in Sources */,
 				417FBB4822EF81BC00C076F9 /* Constants.swift in Sources */,
+				415B968B22FC763C00DED56F /* MediaOptionsViewControllerDelegate.swift in Sources */,
 				410E28BE22FC16020078B9F8 /* Swift+Transforms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
