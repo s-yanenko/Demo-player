@@ -30,6 +30,7 @@ class MainViewController: ViewController {
 
     @IBAction func showPlayerTouch(_ sender: UIButton) {
         let playerVc = UIStoryboard(name: "Player", bundle: nil).instantiateInitialViewController() as! PlayerViewController
+        playerVc.modalPresentationStyle = .fullScreen
         present(playerVc, animated: true, completion: nil)
     }
     

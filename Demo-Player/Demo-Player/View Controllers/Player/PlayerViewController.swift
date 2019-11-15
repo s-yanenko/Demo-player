@@ -203,6 +203,7 @@ class PlayerViewController: ViewController, PlayerAdapterDelegate, MediaOptionsV
         mediaOptionsController.subtitleOptions = options
         mediaOptionsController.currentAudioOption = adapter.currentAudioOption
         mediaOptionsController.currentSubtitleOption = adapter.currentSubtitleOption
+        mediaOptionsController.modalPresentationStyle = .fullScreen
         present(mediaOptionsController, animated: true, completion: nil)
     }
     
